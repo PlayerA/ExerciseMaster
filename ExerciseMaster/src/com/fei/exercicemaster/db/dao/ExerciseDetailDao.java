@@ -8,13 +8,13 @@ import java.util.List;
 
 import com.fei.exercicemaster.db.ExerciseDbHelper;
 import com.fei.exercicemaster.entity.ExerciseDetail;
+import com.fei.exercicemaster.util.Constant;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class ExerciseDetailDao {
-	private static final String DATE_FORMAT = "yyyy MMM dd";
 	private ExerciseDbHelper helper;
 
 
@@ -37,7 +37,7 @@ public class ExerciseDetailDao {
 			sb.append("  and ");
 			sb.append(ExerciseDbHelper.TYPE);
 			sb.append(" = ?");
-			Cursor cursor = db.rawQuery(sb.toString(), new String[] {new SimpleDateFormat(DATE_FORMAT).format(createDate).toString(), type});
+			Cursor cursor = db.rawQuery(sb.toString(), new String[] {new SimpleDateFormat(Constant.DATE_FORMAT).format(createDate).toString(), type});
 			if (cursor.moveToNext()) {
 				isExist = true;
 			}
@@ -65,7 +65,7 @@ public class ExerciseDetailDao {
 			String type = detail.getType();
 			String count = detail.getCount();
 			Date createDate = detail.getCreateDate();
-			db.execSQL(sb.toString(), new Object[]{type,count,new SimpleDateFormat(DATE_FORMAT).format(createDate)});
+			db.execSQL(sb.toString(), new Object[]{type,count,new SimpleDateFormat(Constant.DATE_FORMAT).format(createDate)});
 			db.close();
 		}
 		return true;
@@ -83,7 +83,7 @@ public class ExerciseDetailDao {
 				detail = new ExerciseDetail(cursor.getInt(cursor.getColumnIndex(ExerciseDbHelper._ID)),
 						cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.TYPE)),
 						cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.COUNT)),
-						new SimpleDateFormat(DATE_FORMAT).parse(cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.CREATE_DATE))));
+						new SimpleDateFormat(Constant.DATE_FORMAT).parse(cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.CREATE_DATE))));
 				list.add(detail);
 				detail = null;
 			}
@@ -99,7 +99,7 @@ public class ExerciseDetailDao {
 			affectRows = db.delete(ExerciseDbHelper.TABLE_NAME_EXERCISE_DETAIL,
 					ExerciseDbHelper.CREATE_DATE + " = ?  and " 
 					+ExerciseDbHelper.TYPE + " = ? " ,  
-					new String[] {new SimpleDateFormat(DATE_FORMAT).format(createDate).toString(), type});
+					new String[] {new SimpleDateFormat(Constant.DATE_FORMAT).format(createDate).toString(), type});
 		}
 		return affectRows > 0 ? true : false;
 	}

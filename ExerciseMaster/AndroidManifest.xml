@@ -31,6 +31,7 @@
         </activity>
         
         <activity android:name="com.fei.exercicemaster.ui.MainListActivity"/>
+        <activity android:name="com.fei.exercicemaster.ui.AddActivity"/>
         
     </application>
 
