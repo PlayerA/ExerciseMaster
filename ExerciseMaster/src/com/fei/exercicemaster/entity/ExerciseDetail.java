@@ -25,7 +25,7 @@ public class ExerciseDetail {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 

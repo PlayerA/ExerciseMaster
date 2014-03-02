@@ -1,6 +1,7 @@
 package com.fei.exercicemaster.adapter;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -23,6 +24,7 @@ public class MainListAdapter extends BaseAdapter {
 		 TextView createDate;
 	}
 	public MainListAdapter(List<ExerciseDetail> detailList, Context context) {
+		detailList = detailList == null ? new ArrayList<ExerciseDetail>()  : detailList;
 		this.detailList = detailList;
 		this.context = context;
 	}
@@ -51,6 +53,7 @@ public class MainListAdapter extends BaseAdapter {
 			holder.type = (TextView) view.findViewById(R.id.row_type);
 			holder.count = (TextView) view.findViewById(R.id.row_num);
 			holder.createDate = (TextView) view.findViewById(R.id.row_date);
+			convertView = view;
 			convertView.setTag(holder);
 		} else {
 			holder =  (ViewHolder) convertView.getTag();

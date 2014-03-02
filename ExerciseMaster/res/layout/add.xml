@@ -3,10 +3,179 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <TextView 
-        
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/iv_title"
+            android:layout_width="fill_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/title" />
+
+        <ImageView
+            android:id="@+id/iv_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/iv_title"
+            android:background="@drawable/success" />
+
+        <ImageView
+            android:id="@+id/iv_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/iv_title"
+            android:background="@drawable/fail" />
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/sp_select"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="need to do"/>
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_group1"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:paddingLeft="100dp"
+                android:textSize="23sp" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_group1"
+                style="@style/normal_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_group1"
+                android:layout_alignLeft="@id/et_group1"
+                android:layout_alignTop="@id/et_group1"
+                android:gravity="center_vertical"
+                android:text="@string/group_one" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_group2"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+               android:paddingLeft="100dp"
+                android:textSize="23sp" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_group2"
+                style="@style/normal_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_group2"
+                android:layout_alignLeft="@id/et_group2"
+                android:layout_alignTop="@id/et_group2"
+                android:gravity="center_vertical"
+                android:text="@string/group_two" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_group3"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:paddingLeft="100dp"
+                android:textSize="23sp" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_group3"
+                style="@style/normal_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_group3"
+                android:layout_alignLeft="@id/et_group3"
+                android:layout_alignTop="@id/et_group3"
+                android:gravity="center_vertical"
+                android:text="@string/group_three" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_group4"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:paddingLeft="100dp"
+                android:textSize="23sp" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_group4"
+                style="@style/normal_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_group4"
+                android:layout_alignLeft="@id/et_group4"
+                android:layout_alignTop="@id/et_group4"
+                android:gravity="center_vertical"
+                android:text="@string/group_four" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_group5"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:paddingLeft="100dp"
+                android:textSize="23sp" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_group5"
+                style="@style/normal_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_group5"
+                android:layout_alignLeft="@id/et_group5"
+                android:layout_alignTop="@id/et_group5"
+                android:gravity="center_vertical"
+                android:text="@string/group_five" />
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

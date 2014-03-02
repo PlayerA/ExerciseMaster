@@ -17,4 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="normal_txt_size" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">23sp</item>
+    </style>
+    
+     <style name="list_item_txt_size" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

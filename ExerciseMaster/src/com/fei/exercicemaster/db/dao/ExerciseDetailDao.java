@@ -9,6 +9,7 @@ import java.util.List;
 import com.fei.exercicemaster.db.ExerciseDbHelper;
 import com.fei.exercicemaster.entity.ExerciseDetail;
 import com.fei.exercicemaster.util.Constant;
+import com.fei.exercicemaster.util.MyStringUtil;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -41,6 +42,8 @@ public class ExerciseDetailDao {
 			if (cursor.moveToNext()) {
 				isExist = true;
 			}
+			cursor.close();
+			db.close();
 		}
 		return isExist;
 	}
@@ -82,11 +85,14 @@ public class ExerciseDetailDao {
 			while (cursor.moveToNext()) {
 				detail = new ExerciseDetail(cursor.getInt(cursor.getColumnIndex(ExerciseDbHelper._ID)),
 						cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.TYPE)),
-						cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.COUNT)),
+						MyStringUtil.devideNumToStr(
+								cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.COUNT))
+								, " "),
 						new SimpleDateFormat(Constant.DATE_FORMAT).parse(cursor.getString(cursor.getColumnIndex(ExerciseDbHelper.CREATE_DATE))));
 				list.add(detail);
 				detail = null;
 			}
+			cursor.close();
 			db.close();
 		}
 		return list;
@@ -101,8 +107,20 @@ public class ExerciseDetailDao {
 					+ExerciseDbHelper.TYPE + " = ? " ,  
 					new String[] {new SimpleDateFormat(Constant.DATE_FORMAT).format(createDate).toString(), type});
 		}
+		db.close();
 		return affectRows > 0 ? true : false;
 	}
 	
+	public boolean deleteById(int id){
+		int affectRows = 0;
+		SQLiteDatabase db = helper.getReadableDatabase();
+		if (db.isOpen()) {
+			affectRows = db.delete(ExerciseDbHelper.TABLE_NAME_EXERCISE_DETAIL,
+					ExerciseDbHelper._ID + " = ? " ,  
+					new String[] {String.valueOf(id)});
+		}
+		db.close();
+		return affectRows > 0 ? true : false;
+	}
 }
 	

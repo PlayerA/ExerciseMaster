@@ -25,4 +25,8 @@ public class MyStringUtil {
 	public static List<String> devideNum(String numStr) {
 		return Arrays.asList(numStr.split("\\" + SPILCT));
 	}
+	
+	public static String devideNumToStr(String srcStr,String newSplit) {
+		return	srcStr.replace(SPILCT, newSplit);
+	}
 }
